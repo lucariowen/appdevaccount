@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Login Successful!</h1>
+    <p>Your Profile Details:</p>
+    {% if current_user.is_authenticated %}
+  Username: {{ current_user.username }}
+{% endif %}
+    <br>
+        {% if current_user.is_authenticated %}
+  ID: {{ current_user.id }}
+{% endif %}
+    <br>
+        {% if current_user.is_authenticated %}
+  Email: {{ current_user.email }}
+{% endif %}
+    <br>
+    <a href="{{url_for('change')}}">Change Password</a>
+    <br>
+    <a href="{{url_for('logout')}}">Press here to logout</a>
+    <br>
+    <a href="{{url_for('delete')}}">Press here to delete email</a>
+    <br>
+
+    <br>
+    <form action="#" method="POST">
+        <input type="email" name="email" placeholder="Add an Email Address">
+        <input type="submit" value="submit">
+    </form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</body>
+
+</html>

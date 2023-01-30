@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Data of all registered users</h1>
+    {% for item in values %}
+        <p>ID: {{item.id}}, Name: {{item.username}}, Email: {{item.email}} Password: {{item.password}}</p>
+    {% endfor %}
+</body>
+</html>
